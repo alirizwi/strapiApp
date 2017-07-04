@@ -1,0 +1,57 @@
+{
+  "routes": {
+    "GET /payment": {
+      "controller": "Payment",
+      "action": "find",
+      "policies": [
+        "isAuthorized"
+      ]
+    },
+    "GET /payment/:id": {
+      "controller": "Payment",
+      "action": "findOne",
+      "policies": [
+        "isAuthorized"
+      ]
+    },
+    "POST /payment": {
+      "controller": "Payment",
+      "action": "create",
+      "policies": [
+        "isAuthorized",
+        "addDataCreate"
+      ]
+    },
+    "PUT /payment/:id": {
+      "controller": "Payment",
+      "action": "update",
+      "policies": [
+        "isAuthorized",
+        "addDataUpdate"
+      ]
+    },
+    "DELETE /payment/:id": {
+      "controller": "Payment",
+      "action": "destroy",
+      "policies": [
+        "isAuthorized"
+      ]
+    },
+    "POST /payment/:parentId/:relation": {
+      "controller": "Payment",
+      "action": "add",
+      "policies": [
+        "isAuthorized",
+        "addDataCreate"
+      ]
+    },
+    "DELETE /payment/:parentId/:relation/:id": {
+      "controller": "Payment",
+      "action": "remove",
+      "policies": [
+        "isAuthorized",
+        "addDataUpdate"
+      ]
+    }
+  }
+}

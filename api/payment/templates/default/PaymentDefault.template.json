@@ -1,0 +1,42 @@
+{
+  "default": {
+    "attributes": {
+      "firstName": {
+        "maxLength": 50,
+        "minLength": 2,
+        "required": true
+      },
+      "lastName": {
+        "maxLength": 50,
+        "minLength": 2,
+        "required": true
+      },
+      "creditCardNumber": {
+        "max": 10000000000000000000,
+        "min": 111111111111111,
+        "required": true
+      },
+      "paymentType": {
+        "maxLength": 20,
+        "minLength": 4,
+        "required": true
+      },
+      "expirationMonth": {
+        "max": 12,
+        "min": 1,
+        "required": true
+      },
+      "expirationYear": {
+        "max": 2050,
+        "min": 2017,
+        "required": true
+      },
+      "cvv2": {
+        "max": 999,
+        "min": 111,
+        "required": true
+      }
+    },
+    "displayedAttribute": "firstname"
+  }
+}

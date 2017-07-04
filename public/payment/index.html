@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+    <title>
+        Payment Form
+    </title>
+    <link rel="stylesheet" href="http://cdn.webix.com/edge/webix.css" type="text/css"> 
+    <script src="http://cdn.webix.com/edge/webix.js" type="text/javascript"></script>  
+    </head>
+    <body>
+    <script>
+function submit(){
+    if (this.getParentView().validate()) //on success
+        webix.message(JSON.stringify($$("myForm").getValues(), null, 2));
+    else
+        webix.message({ type:"error", text:"Form data is invalid" });
+};
+
+webix.ui({
+    view:"form", 
+    id:"myForm",
+    width:700,
+    elements:[
+        { view:"text", label:"First Name", name:"first_name", labelWidth:200,labelAlign:"left", required:"true" },
+        { view:"text", label:"Last Name", name:"last_name",labelWidth:200,labelAlign:"left", required:"true"},
+        {   
+        view:"text", label:"Credit Card Number", labelWidth:200,labelAlign:"left", required:"true", id:"number", name:"number", value:'',
+        attributes:
+            { maxlength:19 }
+        },
+
+        {
+        view:"combo",
+        value:1, // the initially selected one
+        label: 'Payment Type',
+        name:"type"
+        , labelWidth:200,labelAlign:"left",
+        required:"true",
+        options:[ 
+        { "id":1, "value":"Visa"}, 
+        { "id":2, "value":"Master Card"}, 
+        { "id":3, "value":"Amex"}
+        ]},
+
+        { view:"text", label:"Expiration Month", name:"expire_month", required:"true",labelWidth:200,labelAlign:"left", placeholder:"MM"},
+        { view:"text", label:"Expiration Year", name:"expire_year", required:"true",labelWidth:200,labelAlign:"left", placeholder:"YYYY"},
+        { view:"text",type:"password", label:"CVV2", name:"cvv2", required:"true",labelWidth:200,labelAlign:"left"},
+        { view:"button", inputWidth:250, label:"Pay", align:"center", click:"submit"}
+    ]
+});
+
+ </script>
+   
+</body>
+</html>
